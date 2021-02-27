@@ -1,0 +1,95 @@
+
+
+@mixin create_container($min-width, $container-width){
+  @media (min-width: $min-width) {
+    .container {
+      max-width: $container-width;
+    }
+  }
+}
+
+@mixin create_columns($name: null){
+
+  @if $name {
+    $name: '-' + $name
+  } @else {
+    $name: ''
+  }
+
+  .col#{$name} {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+  .col#{$name}-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+  }
+
+  @for $i from 1 through 12 {
+    .col#{$name}-#{$i}{
+      flex: 0 0 percentage($i/12);
+      max-width: percentage($i/12);
+    }
+  }
+
+  .order#{$name}-first {
+    order: -1;
+  }
+  .order#{$name}-last {
+    order: 13;
+  }
+
+  @for $i from 0 through 12 {
+    .order#{$name}-#{$i}{
+      order: $i;
+    }
+  }
+
+  @for $i from 1 through 11 {
+    .offset#{$name}-#{$i}{
+      margin-left: percentage($i/12);
+    }
+  }
+
+
+}
+
+@mixin create_display_attributes($name: null){
+
+  @if $name {
+    $name: '-' + $name
+  } @else {
+    $name: ''
+  }
+
+
+  .d#{$name}-none {
+    display: none !important;
+  }
+  .d#{$name}-inline {
+    display: inline !important;
+  }
+  .d#{$name}-inline-block {
+    display: inline-block !important;
+  }
+  .d#{$name}-block {
+    display: block !important;
+  }
+  .d#{$name}-table {
+    display: table !important;
+  }
+  .d#{$name}-table-row {
+    display: table-row !important;
+  }
+  .d#{$name}-table-cell {
+    display: table-cell !important;
+  }
+  .d#{$name}-flex {
+    display: flex !important;
+  }
+  .d#{$name}-inline-flex {
+    display: inline-flex !important;
+  }
+}

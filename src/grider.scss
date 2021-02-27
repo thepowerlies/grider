@@ -1,0 +1,95 @@
+@use  "sass:map";
+@import "variables";
+@import "mixins";
+
+
+@mixin generate_grid(){
+  @include generate_containers();
+  @include generate_columns();
+  @include generate_display_attributes();
+}
+
+@mixin generate_containers(){
+  .container {
+    width: 100%;
+    padding-right: $gutter-width;
+    padding-left: $gutter-width;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: $base-container-size;
+  }
+  @debug $breakpoints;
+  @each $name, $config in $breakpoints {
+    @warn $name;
+    @include create_container(map.get($config, 'breakpoint'), map.get($config, container));
+  }
+  .container-fluid {
+    width: 100%;
+    padding-right: $gutter-width;
+    padding-left: $gutter-width;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .no-gutters > .col,
+  .no-gutters > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@mixin generate_columns(){
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -$gutter-width;
+    margin-left: -$gutter-width;
+  }
+
+  $cols: '';
+  @for $i from 1 through $column-count {
+    $cols: $cols + '.#{$column-name}-#{$i},'
+  }
+  $cols: $cols + '.#{$column-name}-auto,';
+  @each $name, $config in $breakpoints {
+    @for $i from 1 through $column-count {
+      $cols: $cols + '.#{$column-name}-#{$name}-#{$i},'
+    }
+    $cols: $cols + '.#{$column-name}-#{$name}-auto,';
+  }
+  #{$cols} {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: $gutter-width;
+    padding-left: $gutter-width;
+  }
+
+
+  @include create_columns();
+  @each $name, $config in $breakpoints {
+    @media (min-width: map.get($config, breakpoint)) {
+      @include create_columns($name)
+    }
+  }
+
+}
+
+
+@mixin generate_display_attributes(){
+  @include create_display_attributes();
+
+  @each $name, $config in $breakpoints {
+    @media (min-width: map.get($config, breakpoint)) {
+      @include create_display_attributes($name)
+    }
+  }
+}
+
+@mixin configure_grid(){
+
+}
