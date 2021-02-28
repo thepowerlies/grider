@@ -1,4 +1,4 @@
-
+@import "variables";
 
 @mixin create_container($min-width, $container-width){
   @media (min-width: $min-width) {
@@ -16,21 +16,21 @@
     $name: ''
   }
 
-  .col#{$name} {
+  .#{$column-name}#{$name} {
     flex-basis: 0;
     flex-grow: 1;
     max-width: 100%;
   }
-  .col#{$name}-auto {
+  .#{$column-name}#{$name}-auto {
     flex: 0 0 auto;
     width: auto;
     max-width: none;
   }
 
-  @for $i from 1 through 12 {
-    .col#{$name}-#{$i}{
-      flex: 0 0 percentage($i/12);
-      max-width: percentage($i/12);
+  @for $i from 1 through $column-count {
+    .#{$column-name}#{$name}-#{$i}{
+      flex: 0 0 percentage($i/$column-count);
+      max-width: percentage($i/$column-count);
     }
   }
 
@@ -38,10 +38,10 @@
     order: -1;
   }
   .order#{$name}-last {
-    order: 13;
+    order: $column-count+1;
   }
 
-  @for $i from 0 through 12 {
+  @for $i from 0 through $column-count {
     .order#{$name}-#{$i}{
       order: $i;
     }
@@ -49,7 +49,7 @@
 
   @for $i from 1 through 11 {
     .offset#{$name}-#{$i}{
-      margin-left: percentage($i/12);
+      margin-left: percentage($i/$column-count);
     }
   }
 
