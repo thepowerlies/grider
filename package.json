@@ -2,7 +2,7 @@
   "name": "grider",
   "version": "0.1.0",
   "description": "A grid generation library",
-  "main": "sass/grider.scss",
+  "main": "sass/grid.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
