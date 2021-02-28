@@ -1,4 +1,4 @@
-@import "variables";
+@import "sass/variables";
 
 @mixin create_container($min-width, $container-width){
   @media (min-width: $min-width) {
