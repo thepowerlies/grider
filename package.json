@@ -1,5 +1,5 @@
 {
-  "name": "grider",
+  "name": "web-grider",
   "version": "0.1.0",
   "description": "A grid generation library",
   "main": "sass/grid.scss",
