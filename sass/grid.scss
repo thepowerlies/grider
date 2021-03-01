@@ -19,7 +19,6 @@
   }
   @debug $breakpoints;
   @each $name, $config in $breakpoints {
-    @warn $name;
     @include create_container(map_get($config, 'breakpoint'), map_get($config, container));
   }
   .container-fluid {
@@ -88,3 +87,10 @@
     }
   }
 }
+
+//@function configure_grid($config){
+//  $config-breakpoints: map_get($config, breakpoints);
+//  @if $config-breakpoints {
+//    $breakpoints: $config-breakpoints;
+//  }
+//}
