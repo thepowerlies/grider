@@ -18,6 +18,7 @@ To use grid generator, add it to your source files:
 );
 
 @include grid.generate_grid();
+
 ```
 
 **Installation**
