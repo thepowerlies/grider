@@ -3,9 +3,14 @@
 
 
 @mixin generate_grid(){
-  @include generate_containers();
+  @if $generate-containers {
+    @include generate_containers();
+  }
   @include generate_columns();
-  @include generate_display_attributes();
+  @if $generate-display {
+    @include generate_display_attributes();
+  }
+
 }
 
 @mixin generate_containers(){
@@ -17,7 +22,7 @@
     margin-left: auto;
     max-width: $base-container-size;
   }
-  @debug $breakpoints;
+
   @each $name, $config in $breakpoints {
     @include create_container(map_get($config, 'breakpoint'), map_get($config, container));
   }
