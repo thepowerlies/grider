@@ -1,7 +1,7 @@
 {
   "name": "web-grider",
-  "version": "0.1.2",
-  "description": "A grid generation library",
+  "version": "0.1.3",
+  "description": "A grid generation library for web",
   "main": "sass/grid.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,6 +13,14 @@
     "responsive",
     "bootstrap"
   ],
-  "author": "Ali Gharibi",
-  "license": "MIT"
+  "author": {
+    "name" : "Ali Gharibi",
+    "url" : "http://thepowerlies.com"
+  },
+  "license": "MIT",
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thepowerlies/grider"
+  }
 }

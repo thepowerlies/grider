@@ -41,6 +41,10 @@ npm install web-grider
         <td><code>"row"</code></td>
     </tr>
     <tr>
+        <td><code>$container-name:</code></td>
+        <td><code>"container"</code></td>
+    </tr>
+    <tr>
         <td><code>$column-name:</code></td>
         <td><code>"col"</code></td>
     </tr>

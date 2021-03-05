@@ -9,6 +9,7 @@ $breakpoints: (
 $row-name: "row" !default;
 $column-name: "col" !default;
 $column-count: 12 !default;
+$container-name: "container" !default;
 
 
 $base-container-size: 360px !default;
@@ -16,4 +17,3 @@ $base-container-size: 360px !default;
 $gutter-width: 15px !default;
 $generate-display: true !default;
 $generate-containers: true !default;
-

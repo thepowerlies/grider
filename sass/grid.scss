@@ -14,7 +14,7 @@
 }
 
 @mixin generate_containers(){
-  .container {
+  .#{$container-name}  {
     width: 100%;
     padding-right: $gutter-width;
     padding-left: $gutter-width;
@@ -24,9 +24,9 @@
   }
 
   @each $name, $config in $breakpoints {
-    @include create_container(map_get($config, 'breakpoint'), map_get($config, container));
+    @include create_container(map_get($config, breakpoint), map_get($config, container));
   }
-  .container-fluid {
+  .#{$container-name}-fluid {
     width: 100%;
     padding-right: $gutter-width;
     padding-left: $gutter-width;
@@ -46,7 +46,7 @@
 }
 
 @mixin generate_columns(){
-  .row {
+  .#{$row-name} {
     display: flex;
     flex-wrap: wrap;
     margin-right: -$gutter-width;
